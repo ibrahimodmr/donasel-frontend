@@ -3,14 +3,16 @@ import { Menubar } from 'primereact/menubar';
 import "../../styles/global.css";
 
 const logoComponent = (
-  <span className="flex items-center justify-center">
+//   <span className="flex items-center justify-center bg-black">
+    <a href="/anasayfa" className="flex items-center justify-center bg-black">
     <img  
       alt="logo"
       src={`${process.env.PUBLIC_URL}/donasel_logo.png`}
-      className="w-40 h-auto m-2"
+      className="w-40 h-auto pr-10 "
       style={{ margin: '0 auto' }}
     />
-  </span>
+    </a>
+//   </span>
 );
 
 const menuItems = [
@@ -24,9 +26,9 @@ const menuItems = [
     icon: 'pi pi-th-large',
     command: () => { window.location = '/kurumsal'; }
   },
-  {
-    template: logoComponent,
-  },
+//   {
+//     template: logoComponent,
+//   },
   {
     label: 'KOLEKSİYONLAR',
     icon: 'pi pi-briefcase',
@@ -55,9 +57,12 @@ const menuItems = [
 const MenuComponent = () => {
   return (
     <div className="flex justify-center mb-5 bg-black">
-      <Menubar 
+      <Menubar
+      start={logoComponent}
         model={menuItems}
-        className="py-4 text-lg font-semibold text-white bg-black"
+        // className="py-4 text-lg font-semibold text-white bg-black"
+        className="w-full p-1 m-2 font-semibold text-white bg-black border-none "
+        breakpoint="768px"
       />
     </div>
   );
