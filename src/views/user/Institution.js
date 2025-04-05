@@ -6,7 +6,7 @@ const Institution  = () => {
 
     return (
         <div>
-            BU KISIMDA DONASEL HAKKINDA YAZILABILIR.
+            SİTEMİZ YAPIM AŞAMASINDADIR. LÜTFEN DİĞER SAYFALARI KULLANINIZ.
         </div>
     );
 
