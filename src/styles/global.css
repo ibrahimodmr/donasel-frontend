@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PrimeReact styles */
+@import 'primereact/resources/themes/saga-blue/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
+/* Custom PrimeReact styles */
+.p-menuitem {
+    padding: 0px 10px;
+}
+.p-menuitem-text {
+    color: white !important;
+}
+
+.p-menuitem-icon {
+    color: white !important;
+}
+
+.p-menuitem-link {
+    color: white;
+    background-color: black;
+}
+
+.p-submenu-list {
+    background-color: black;
+    border-radius: 4px;    
+}
+
+.p-menuitem-link:hover {
+    background-color: #202020;
+}
+
+.p-menuitem-link .p-menuitem-text {
+    color: white;
+}
