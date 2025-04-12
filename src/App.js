@@ -17,6 +17,7 @@ function App() {
         <MenuComponent />
         <div className="flex-grow">
           <Routes>
+            <Route path='/' Component={MainPage} />
             <Route path='/iletisim' Component={Contact}/>
             <Route path='/kurumsal' Component={Institution} />
             <Route path='/anasayfa' Component={MainPage} />
