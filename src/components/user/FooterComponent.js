@@ -14,10 +14,10 @@ const FooterComponent = () => {
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
+          <a href="https://www.instagram.com/donaselmobilya/" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="tel:+123456789" className="text-2xl text-white">
+          <a href="tel: +905320559362" className="text-2xl text-white">
             <FontAwesomeIcon icon={faPhone} />
           </a>
         </div>

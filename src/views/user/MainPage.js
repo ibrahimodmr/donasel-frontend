@@ -25,13 +25,13 @@ const MainPage = () => {
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
-        className="object-cover w-full h-full transition-all duration-700 ease-in-out"
+        className="object-cover w-full transition-all duration-700 ease-in-out h-5/6"
       />
 
       {/* Overlay */}
       <div className="absolute inset-0 flex items-center justify-center bg-black/40">
         <h1 className="text-3xl font-bold text-center text-white sm:text-5xl drop-shadow-lg">
-          Hoş Geldiniz<br />Modern Mobilya Dünyasına
+          Hoş Geldiniz<br />DONASEL MOBİLYA
         </h1>
       </div>
 

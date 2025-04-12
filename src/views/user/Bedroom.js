@@ -9,12 +9,41 @@ const Bedroom = () => {
     const [images, setImages] = useState([]);
     
     useEffect(() => {
-        const fetchData = async () => {
-            const imagesData = await fetchImagesByCategoryAndFavorities(EnumDB.YATAK_ODASI, true);
-            setImages(imagesData);
-        }
-        fetchData();
-    },[]);
+        const fetchImagesFromPublicFolder = async () => {
+          const folderPath = "/donasel_images/yatak/";
+          const models = [
+            "ipek",
+            "lizbon",
+            "nazar",
+            "duz",
+            "girne",
+            "hazar",
+            "lotus",
+            "pablo",
+            "parma",
+            "sirus"
+          ];
+
+          
+          const imagesData = [];
+      
+          for (const model of models) {
+
+            const filePath = `${folderPath}${model}/1.jpg`;
+                imagesData.push({
+                    path: filePath,
+                    name: model.charAt(0).toUpperCase() + model.slice(1),
+                    furnitureId: 1,
+                });
+          }
+
+          setImages(imagesData);
+        };
+      
+        fetchImagesFromPublicFolder();
+      }, []);
+      
+      
  
     return (
         <div className="flex-col my-4">

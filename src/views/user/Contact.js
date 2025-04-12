@@ -18,9 +18,9 @@ const Contact = () => {
     <div className="flex flex-col items-center gap-6 px-4 mt-12">
       <div className="w-full max-w-4xl p-6 bg-gray-100 border border-gray-300 rounded-lg">
         <h2 className="mb-4 text-2xl font-semibold">İletişim Bilgileri</h2>
-        <p className="flex flex-wrap"><strong className="w-28">Adres:</strong> İnegöl - BURSA</p>
-        <p className="flex flex-wrap"><strong className="w-28">Telefon:</strong> (123) 456-7890</p>
-        <p className="flex flex-wrap"><strong className="w-28">Email:</strong> donasel@gmail.com</p>
+        <p className="flex flex-wrap"><strong className="w-28">Adres:</strong> Mahmudiye Mahallesi 21.Mobilya Sokak No:57 16400 İnegöl/Bursa, Inegol 16400</p>
+        <p className="flex flex-wrap"><strong className="w-28">Telefon:</strong> +90 (532) 055 9362</p>
+        <p className="flex flex-wrap"><strong className="w-28">Email:</strong> donasel.muhasebe@outlook.com</p>
       </div>
 
       <div className="w-full max-w-4xl border border-gray-300 rounded-lg h-[400px]">
@@ -31,7 +31,7 @@ const Contact = () => {
           />
           <Marker position={center}>
             <Popup>
-              DONASEL MOBİLYA ADRES BİLGİSİ EKLENECEK
+            Mahmudiye Mahallesi 21.Mobilya Sokak No:57 16400 İnegöl/Bursa, Inegol 16400
             </Popup>
           </Marker>
         </MapContainer>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Menubar } from 'primereact/menubar';
+import { useState, useEffect } from "react";
 import "../../styles/global.css";
 
 const logoComponent = (
@@ -8,14 +9,15 @@ const logoComponent = (
     <img  
       alt="logo"
       src={`${process.env.PUBLIC_URL}/donasel_logo.png`}
-      className="w-40 h-auto pr-10 "
-      style={{ margin: '0 auto' }}
+      className="w-40 h-auto pr-2"
+      style={{ margin: '3 auto', width:220, height:75 }}
+      onClick={() => { window.location = '/anasayfa'; }}
     />
     </a>
 //   </span>
 );
 
-const menuItems = [
+const menuItemsPhone = [
   {
     label: 'ANASAYFA',
     icon: 'pi pi-home',
@@ -26,9 +28,6 @@ const menuItems = [
     icon: 'pi pi-th-large',
     command: () => { window.location = '/kurumsal'; }
   },
-//   {
-//     template: logoComponent,
-//   },
   {
     label: 'KOLEKSİYONLAR',
     icon: 'pi pi-briefcase',
@@ -54,16 +53,78 @@ const menuItems = [
   }
 ];
 
+const menuItems = [
+  {
+    label: 'ANASAYFA',
+    icon: 'pi pi-home',
+    command: () => { window.location = '/anasayfa'; }
+  },
+  {
+    label: 'KURUMSAL',
+    icon: 'pi pi-th-large',
+    command: () => { window.location = '/kurumsal'; }
+  },
+  {
+    template: logoComponent,
+  },
+  {
+    label: 'KOLEKSİYONLAR',
+    icon: 'pi pi-briefcase',
+    items: [
+      {
+        label: 'YATAK ODASI',
+        command: () => { window.location = '/urun-kategori/yatak-odasi'; }
+      },
+      {
+        label: 'YEMEK ODASI',
+        command: () => { window.location = '/urun-kategori/yemek-odasi'; }
+      },
+      {
+        label: 'KOLTUK TAKIMI',
+        command: () => { window.location = '/urun-kategori/koltuk-takimi'; }
+      }
+    ]
+  },
+  {
+    label: 'İLETİŞİM',
+    icon: 'pi pi-fw pi-envelope',
+    command: () => { window.location = '/iletisim'; }
+  }
+];
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile;
+}
+
 const MenuComponent = () => {
+  const isMobile = useIsMobile();
   return (
     <div className="flex justify-center mb-5 bg-black">
-      <Menubar
-      start={logoComponent}
-        model={menuItems}
-        // className="py-4 text-lg font-semibold text-white bg-black"
-        className="w-full p-1 m-2 font-semibold text-white bg-black border-none "
-        breakpoint="768px"
-      />
+      {isMobile ? (
+        <Menubar
+          start={logoComponent}
+          model={menuItemsPhone}
+          className="py-4 text-white bg-black"
+        />
+      ) : (
+        <Menubar
+          model={menuItems}
+          className="py-4 text-lg font-semibold text-white bg-black"
+          breakpoint="768px"
+        />
+      )}
     </div>
   );
 };

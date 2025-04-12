@@ -1,0 +1,59 @@
+import React from "react";
+import ImageCardComponent from "../../components/user/ImageCardComponent";
+import { useState, useEffect } from "react";
+
+
+const Sofa = () => {
+
+    const [images, setImages] = useState([]);
+    
+    useEffect(() => {
+        const fetchImagesFromPublicFolder = async () => {
+          const folderPath = "/donasel_images/koltuk/";
+          const models = [
+            "azra",
+            "nisa"
+          ];
+
+          
+          const imagesData = [];
+      
+          for (const model of models) {
+
+            const filePath = `${folderPath}${model}/1.jpg`;
+                imagesData.push({
+                    path: filePath,
+                    name: model.charAt(0).toUpperCase() + model.slice(1),
+                    furnitureId: 1,
+                });
+          }
+
+          setImages(imagesData);
+        };
+      
+        fetchImagesFromPublicFolder();
+      }, []);
+      
+      
+ 
+    return (
+        <div className="flex-col my-4">
+            <div className="flex px-10 py-10 my-4 text-white bg-black">
+                <img src="/sofa_main.jpg" className="w-1/2 m-2"/>
+                <div className="flex flex-col items-center justify-center w-1/2 m-2">
+                    <h1 className="font-serif text-4xl font-bold">KOLTUK TAKIMLARI</h1>
+                </div> 
+            </div>
+            <div className="flex items-center justify-center mt-20">
+                <div className="grid w-4/5 grid-cols-3 overflow-hidden ">
+                    {images.map((image, index) => (
+                            <ImageCardComponent key={index} image={image} />
+                            ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+export default Sofa;
