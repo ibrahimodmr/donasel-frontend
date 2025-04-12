@@ -2,6 +2,22 @@ import React from "react";
 import ImageCardComponent from "../../components/user/ImageCardComponent";
 import { useState, useEffect } from "react";
 
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(
+      typeof window !== "undefined" ? window.innerWidth < 768 : false
+    );
+  
+    useEffect(() => {
+      function handleResize() {
+        setIsMobile(window.innerWidth < 768);
+      }
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    return isMobile;
+  }
+
 
 const Sofa = () => {
 
@@ -35,7 +51,7 @@ const Sofa = () => {
       }, []);
       
       
- 
+      const isMobile = useIsMobile();
     return (
         <div className="flex-col my-4">
             <div className="flex px-10 py-10 my-4 text-white bg-black">
@@ -45,11 +61,19 @@ const Sofa = () => {
                 </div> 
             </div>
             <div className="flex items-center justify-center mt-20">
-                <div className="grid w-4/5 grid-cols-3 overflow-hidden ">
+            {isMobile ? (
+                    <div className="grid w-4/5 overflow-hidden ">
                     {images.map((image, index) => (
                             <ImageCardComponent key={index} image={image} />
                             ))}
                 </div>
+                ) : (
+                    <div className="grid w-4/5 grid-cols-3 overflow-hidden ">
+                    {images.map((image, index) => (
+                            <ImageCardComponent key={index} image={image} />
+                            ))}
+                </div>
+                )}
             </div>
         </div>
     )

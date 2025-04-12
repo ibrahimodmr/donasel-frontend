@@ -4,9 +4,26 @@ import { useState, useEffect } from "react";
 import { fetchImagesByCategoryAndFavorities } from "../../utils/Api";
 import EnumDB from "../../utils/EnumsDB";
 
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(
+      typeof window !== "undefined" ? window.innerWidth < 768 : false
+    );
+  
+    useEffect(() => {
+      function handleResize() {
+        setIsMobile(window.innerWidth < 768);
+      }
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    return isMobile;
+  }
+
 const Bedroom = () => {
 
     const [images, setImages] = useState([]);
+    
     
     useEffect(() => {
         const fetchImagesFromPublicFolder = async () => {
@@ -44,7 +61,7 @@ const Bedroom = () => {
       }, []);
       
       
- 
+    const isMobile = useIsMobile();
     return (
         <div className="flex-col my-4">
             <div className="flex px-10 py-10 my-4 text-white bg-black">
@@ -54,11 +71,19 @@ const Bedroom = () => {
                 </div> 
             </div>
             <div className="flex items-center justify-center mt-20">
-                <div className="grid w-4/5 grid-cols-3 overflow-hidden ">
+                {isMobile ? (
+                    <div className="grid w-4/5 overflow-hidden ">
                     {images.map((image, index) => (
                             <ImageCardComponent key={index} image={image} />
                             ))}
                 </div>
+                ) : (
+                    <div className="grid w-4/5 grid-cols-3 overflow-hidden ">
+                    {images.map((image, index) => (
+                            <ImageCardComponent key={index} image={image} />
+                            ))}
+                </div>
+                )}
             </div>
         </div>
     )
