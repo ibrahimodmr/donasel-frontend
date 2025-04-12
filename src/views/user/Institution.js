@@ -20,7 +20,6 @@ const Institution = () => {
           her zaman fonksiyonel, kullanışlı ve yüksek kaliteli ürünler sunmayı 
           amaçlamaktadır.
         </p>
-
         {/* Mission & Vision as a two-column layout on larger screens */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           
@@ -43,6 +42,7 @@ const Institution = () => {
               global pazarlarda da marka bilinirliğimizi artırmak.
             </p>
           </div>
+
         </div>
       </div>
     </div>
