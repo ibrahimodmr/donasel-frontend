@@ -1,27 +1,18 @@
 import React from "react";
 import ImageCardComponent from "../../components/user/ImageCardComponent";
 import { useState, useEffect } from "react";
-import { fetchImagesByCategoryAndFavorities } from "../../utils/Api";
-import EnumDB from "../../utils/EnumsDB";
 
-const Bedroom = () => {
+
+const Sofa = () => {
 
     const [images, setImages] = useState([]);
     
     useEffect(() => {
         const fetchImagesFromPublicFolder = async () => {
-          const folderPath = "/donasel_images/yatak/";
+          const folderPath = "/donasel_images/koltuk/";
           const models = [
-            "ipek",
-            "lizbon",
-            "nazar",
-            "duz",
-            "girne",
-            "hazar",
-            "lotus",
-            "pablo",
-            "parma",
-            "sirus"
+            "azra",
+            "nisa"
           ];
 
           
@@ -48,9 +39,9 @@ const Bedroom = () => {
     return (
         <div className="flex-col my-4">
             <div className="flex px-10 py-10 my-4 text-white bg-black">
-                <img src="/bedroom_main.jpeg" className="w-1/2 m-2"/>
+                <img src="/sofa_main.jpg" className="w-1/2 m-2"/>
                 <div className="flex flex-col items-center justify-center w-1/2 m-2">
-                    <h1 className="font-serif text-4xl font-bold">YATAK ODALARI</h1>
+                    <h1 className="font-serif text-4xl font-bold">KOLTUK TAKIMLARI</h1>
                 </div> 
             </div>
             <div className="flex items-center justify-center mt-20">
@@ -65,4 +56,4 @@ const Bedroom = () => {
 }
 
 
-export default Bedroom;
+export default Sofa;
