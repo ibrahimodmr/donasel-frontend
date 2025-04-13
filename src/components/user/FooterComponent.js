@@ -11,7 +11,7 @@ const FooterComponent = () => {
       <div className="flex flex-col items-center">
         <img src={`${process.env.PUBLIC_URL}/donasel_logo.png`} alt="Logo" className="w-24 mb-4" />
         <div className="flex mb-4 space-x-4">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
+          <a href="https://www.facebook.com/donaselfurnitur" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a href="https://www.instagram.com/donaselmobilya/" target="_blank" rel="noopener noreferrer" className="text-2xl text-white">
