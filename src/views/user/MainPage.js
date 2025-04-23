@@ -4,7 +4,6 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import LazyVideo from "../../components/user/LazyVideo";
 
 const images = [
-  "/anasayfa_fuar.jpg",
   "/anasayfa_0.jpg",
   "/anasayfa_1.jpg",
   "/anasayfa_2.jpg",
@@ -29,7 +28,6 @@ const MainPage = () => {
 
   return (
     <>
-      {/* HERO / SLIDER SECTION */}
       <div className="relative w-full h-[80vh] sm:h-screen overflow-hidden bg-black ">
         <img
           src={images[currentIndex]}
@@ -38,16 +36,8 @@ const MainPage = () => {
         />
 
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <h1 className="text-3xl font-bold text-center text-white sm:text-5xl drop-shadow-lg">
-            52. MODEF Mobilya Fuarı'nda Sizlerleyiz 
-            <br/>
-            <br />
-            15-19 NISAN 2025
-            <br/>
-
-            <br />
-            DONASEL MOBİLYA
-          </h1>
+          {/* <h1 className="text-3xl font-bold text-center text-white sm:text-5xl drop-shadow-lg">
+          </h1> */}
         </div>
 
         <button
@@ -78,7 +68,6 @@ const MainPage = () => {
         </div>
       </div>
 
-      {/* PROMOTIONAL VIDEO SECTION */}
       <section className="flex flex-col items-center justify-center py-10 bg-transparent">
         <h1 className="mb-6 text-2xl font-bold text-gray-800">Tanıtım Videomuz</h1>
         

@@ -39,7 +39,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .p-menubar-root-list {
       flex-direction: column !important;
       align-items: start !important;
